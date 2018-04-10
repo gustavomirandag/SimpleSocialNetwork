@@ -1,0 +1,64 @@
+﻿@model DomainModel.Entities.Profile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Photo)" style="width:200px;height:auto"/>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<table class="table">
+    @foreach (var item in ViewBag.Posts)
+    {
+        <tr>
+            <td>
+                @item.Content
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", "Posts", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.Id })
+        </td>
+    </tr>
+    }
+</table>

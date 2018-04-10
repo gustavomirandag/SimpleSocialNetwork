@@ -11,6 +11,7 @@ namespace Data.Context
     public class SocialNetworkContext:DbContext
     {
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         public SocialNetworkContext()
             :base(Data.Properties.Settings.Default.DbConnectionString)
